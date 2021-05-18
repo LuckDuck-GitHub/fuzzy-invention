@@ -1,0 +1,34 @@
+## Interface: 11303
+## Title: Poisoner
+## Notes: Poison application helper for rogues
+## Author: Original by Karrion@Terenas, Poisoner3 by Silentdave, humfras (06/2010), Poisoner4 by humfras
+## eMail: N/A
+## URL: N/A
+## Version: 1.13.2.17-classic
+## Dependencies:
+## SavedVariablesPerCharacter: POISONER_CONFIG
+
+libs\Libstub\Libstub.lua
+libs\CallbackHandler-1.0\CallbackHandler-1.0.xml
+libs\SimpleSticky.lua
+libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+libs\LibDBIcon-1.0\LibDBIcon-1.0.lua
+
+Poisoner_Static.lua
+
+Bindings.xml
+locale\locale.xml
+
+modules\Poisoner_Sound.xml
+modules\Poisoner_Sound.lua
+
+modules\Poisoner_Options.lua
+modules\Poisoner_Options.xml
+
+modules\Poisoner_DropdownMenu.lua
+
+modules\Poisoner_Timer.lua
+modules\Poisoner_Timer.xml
+
+Poisoner.xml
+modules\Poisoner_SecureHandler.lua

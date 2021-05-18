@@ -1,0 +1,267 @@
+lightweight tag 6e1a2764730d899d30fc992d00ba1da4937caf5c release-1.4.2
+Author:	Zwyk <erb.fel@gmail.com>
+Date:	Wed Aug 21 02:50:32 2019 +0200
+
+commit 6e1a2764730d899d30fc992d00ba1da4937caf5c
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Wed Aug 21 02:50:32 2019 +0200
+
+    Fixed Mirro bar movable and position save
+
+commit c85c1008dedcffa981c427b57010ace5809d214d
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Tue Aug 20 18:46:27 2019 +0200
+
+    TestDelay 0.1 -> 0.5
+    
+    Just so it's not the same as the lag
+
+commit e4a7df7e08e5b77aa486971fd1bcb720d04e1827
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Mon Aug 19 15:16:45 2019 -0400
+
+    Update eOptions.xml
+
+commit 8001e334f4ece05cf505c9ed36592afea88326d1
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Mon Aug 19 15:02:41 2019 -0400
+
+    Update eOptions_Menu.xml
+
+commit 33315b6e159890aa351dc618806fc8a271e75e44
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Mon Aug 19 14:52:02 2019 -0400
+
+    Add background alpha editboxes
+
+commit 6e910c4770be8a8409c38997d3a7a7da0ae96b39
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Mon Aug 19 16:47:21 2019 +0200
+
+    Fix for lag test display
+
+commit 7f1e042dec2b4a409a4c34b2b710bacbf91efe11
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Mon Aug 19 15:28:28 2019 +0200
+
+    Fix fontsize edit box
+
+commit deace2b58e02995ddc081af377a1a3d88537db99
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Mon Aug 19 09:11:33 2019 -0400
+
+    Add textboxes for font sizes
+
+commit deace2b58e02995ddc081af377a1a3d88537db99
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Mon Aug 19 09:11:33 2019 -0400
+
+    Add textboxes for font sizes
+
+commit 080f27f132ce914804483685b8538034e9e1180b
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Mon Aug 19 13:03:15 2019 +0200
+
+    Better test mode refresh
+
+commit 5b7195894ef6e8429f3ca0169f7f6ea62311155d
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Mon Aug 19 12:38:01 2019 +0200
+
+    Removed duplicate calls
+
+commit 7c8788f4814a917ae9dd9c70e9a8500b55007fec
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Mon Aug 19 12:34:19 2019 +0200
+
+    Better update of the test frame
+
+commit a406643cd313633353c0b307ea066cabb31b89cd
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Mon Aug 19 10:50:18 2019 +0200
+
+    Added a test display when outline showing
+    
+    Mirror bar doesn't seem to be movable though ?
+
+commit e445cb4e84330e4df1929cf9c6ccf0f453088000
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sun Aug 18 23:06:39 2019 -0400
+
+    Fix spell delay bug, implement channeled ticks option
+
+commit 6f35525de992a8a3d1de0fc29810245ed2e26ce8
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sun Aug 18 19:40:17 2019 -0400
+
+    Delay reimplemented
+
+commit 1b7b31b1db5bd11d721556c0bb45ea7526205d59
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sun Aug 18 18:27:56 2019 -0400
+
+    Optimize options interface for ticks and delay
+
+commit b6f8c68a47390a423249c81e3618971b20948db0
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sun Aug 18 15:09:29 2019 -0400
+
+    Update eOptions.xml
+
+commit b08f1a06c709fb0b14dc6b1d65ef6c365dbff9a8
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Sun Aug 18 18:21:08 2019 +0200
+
+    Better ticks cleaning
+
+commit 8a3dcdbdfac0d15f0d643305c4f9d4c5c3509640
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Sun Aug 18 17:29:47 2019 +0200
+
+    Ticks code more versatile
+    
+    For later if float rate needed
+
+commit 925752f398cef6e3dc185f508d3f996e8457d957
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Sun Aug 18 17:14:48 2019 +0200
+
+    Added channeling ticks display
+    
+    Should be added as an option
+
+commit c7494afd8375277921034a66a2bd9b5ea207a960
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Sat Aug 17 23:53:10 2019 +0200
+
+    Latency text to the left when chaneling
+
+commit 7e77fa9f4d19509638146659822610e551145949
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sat Aug 17 16:11:57 2019 -0400
+
+    Add quartz textures
+
+commit 32ee79a4578c37664c77c97c11780f4ac95e84ed
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sat Aug 17 16:01:10 2019 -0400
+
+    Fix total time variables
+
+commit 760afc88be1b2f54fbbe81dfbeb7ebc2460509a6
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Sat Aug 17 17:29:35 2019 +0200
+
+    Fixed typo from last commit
+
+commit 5366ac9f9e4631f9ab2be65b4551d0c6bb1c0c3e
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Sat Aug 17 17:23:36 2019 +0200
+
+    Fix for checkboxes not loading correctly
+
+commit fc7a4cf2a09ff2114241dfccf01c714ef9971e2c
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Sat Aug 17 15:43:28 2019 +0200
+
+    Fix for channeling spell showing border
+
+commit 436f5ae3a755aed3e1478ca639f4e6512c8b1b8b
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Fri Aug 16 00:30:31 2019 +0200
+
+    Latency bar update + time display changes
+    
+    Latency bar texture now shows over the cast bar texture when channeling a spell.
+    Changed time display to be ShowTime shows current cast can and ShowTimeQuart (should be renamed) to show totalTime. Both together adds a "/" inbetween.
+
+commit 04f4a82a15558ced3ce2882b07cc805dd65c5d57
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Wed Aug 14 23:57:39 2019 -0400
+
+    Revert "Revert "Add total time and lag latency bar to eCB options interface""
+    
+    This reverts commit 885affb80cbb83757448771e3292b90a0edd0ba3.
+
+commit 885affb80cbb83757448771e3292b90a0edd0ba3
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Wed Aug 14 23:57:05 2019 -0400
+
+    Revert "Add total time and lag latency bar to eCB options interface"
+    
+    This reverts commit ba2a0dcd8a18da817f5eef67ad9cf60579f28035.
+
+commit ba2a0dcd8a18da817f5eef67ad9cf60579f28035
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Wed Aug 14 23:35:58 2019 -0400
+
+    Add total time and lag latency bar to eCB options interface
+
+commit 4e6d684b1d4a52a0905fce4e57b900b6cb8e5e35
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Thu Aug 15 02:10:29 2019 +0200
+
+    Lag display working
+    
+    Works for channeled spells but should be on the left side and covering the cast bar, todo next (+ settings to show/hide)
+
+commit 1bdfa21fcc9b067b17876263739a72a25684f80e
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Wed Aug 14 19:28:35 2019 +0200
+
+    Added total cast time
+    
+    Might help to work on the lag display. See if we keep it or not?
+
+commit 5bbbf7c2dee4be2818b7606a1ace5a4595ac2a7e
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Wed Aug 14 14:47:17 2019 +0200
+
+    Event check and 0 min value
+
+commit f9246793864be305838e5c0b2bad3f540c14bc14
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Wed Aug 14 05:09:10 2019 +0200
+
+    Fix delay local name to lag
+
+commit 473da572076f928884dc5452a921a19898abe7b7
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Wed Aug 14 05:07:30 2019 +0200
+
+    Delay catch
+    
+    Adding a delay local value for testing
+
+commit 569a9d234df17b667d79da3294810e28ae5a3b9c
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Tue Aug 13 20:03:48 2019 -0400
+
+    Change version number for release
+
+commit abe78ca6a16c9209eb1fe1303cb4a0338b09997d
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sun Aug 11 23:33:04 2019 -0400
+
+    Fix GetTime Lua error from Castbar lag fix
+
+commit 935df736c16c7121ea9cf5b4d38cf19a391a0c2e
+Author: Zwyk <erb.fel@gmail.com>
+Date:   Mon Aug 12 01:05:08 2019 +0200
+
+    Fix for the cast bar lag
+    
+    Modifying the MinMax values from using the timestamps to being from 0 (empty) to 1 (full) and setting the values accordingly
+
+commit a569c56004a3f030fd991fd495fed4c4e24fc4cf
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sun Aug 11 18:18:54 2019 -0400
+
+    Cast bar interrupt fix (Zwyk's hotfix)
+
+commit 60672bce3e19e743402f5600013b32d709ffb878
+Author: shoestare <ryantimkerr@gmail.com>
+Date:   Sat Jul 27 21:13:31 2019 -0400
+
+    Update README.md
+

@@ -1,0 +1,107 @@
+﻿--[[ 
+
+	Poisoner
+	¯¯¯¯¯¯¯¯¯¯
+	> ToDo list
+		(LUA code)
+
+]]
+
+
+--=========================================================--
+
+* Options for In/OutofCombat behaviour (Hide/Show etc.)
+* Advanced check for riding/flying etc.
+* Shiv warning
+
+
+--
+--	Ideas for the config/option menu
+--
+
+
+Options_Main {
+
+_____________________________________________
+|											|
+|	Minimap Button							|
+|	❐ "Enable/Disable MinimapButton"		|
+|	❐ "Lock / Unlock MinimapButton"		|
+|	Minimap Button parent:					|
+|	❐ "own frame"		❐ "Minimap"		|	"Only 1 option possible!"
+|											|
+|	"Scale:	0<------------->2"				|
+|											|
+|	Menu position:							|
+|	❐ "Left"		❐ "Right"				|	"Only 1 option possible!"
+|											|
+|	Tooltip content:						|
+|	❐ "Name only"		❐ "Full"			|	"Only 1 option possible!"
+|											|
+|											|
+|											|
+|	[RESET to default]						|
+|___________________________________________|
+ [Main]  |Tools|  |Poisons|
+
+}
+
+
+
+Options_Tools {
+
+_____________________________________________
+|	Presets									|
+|	[Mainhand]	[Offhand]	[Throw]			|
+|											|
+|											|
+|	❐ "Overwrite preset poison when"		|
+|		"applying new one via the menu"		|
+|	(presets will be restored on login)		|
+|											|
+|	❐ "Check for weapon buffs"				|
+|	"Threshold:	0<------------>25"			|
+|	"(minutes)"								|
+|											|
+|	Timer Options:							|
+|	❐ "Aura"		❐ "Lock/Unlock Aura"	|
+|	❐ "Chat"								|
+|	"Scale: 0<----->2"	"Alpha: 0<----->1"	|
+|											|
+|											|
+|											|
+|___________________________________________|
+ |Main|  [Tools]  |Poisons|
+
+}
+
+
+Options_Autobuy {
+
+_____________________________________________
+|											|
+|	Crippling Poison						|
+|	[ICON]	"0<------------->100" X			|
+|											|
+|	Deadly Poison							|
+|	[ICON]	"0<------------->100" X			|
+|											|
+|	Instant Poison							|
+|	[ICON]	"0<------------->100" X			|
+|											|
+|	Mind-numbing Poison						|
+|	[ICON]	"0<------------->100" X			|
+|											|
+|	Wounding Poison							|
+|	[ICON]	"0<------------->100" X			|
+|											|
+|	Auto Buy:								|
+|	❐ "Buy poison automatically"			|
+|		'Amount set under "Poisons"'		|
+|	❐ "Buy Poisons immediately"			|
+|		'Hides the confirmation popup'		|
+|___________________________________________|
+ |Options|  [Poisons]
+
+
+}

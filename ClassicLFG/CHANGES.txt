@@ -1,0 +1,10 @@
+lightweight tag efa5a870246c390ffb11e125960e990d7efab209 1.2.4
+Author:	Domenik Irrgang <domenikirrgang@gmail.com>
+Date:	Thu Aug 13 15:01:26 2020 +0200
+
+commit efa5a870246c390ffb11e125960e990d7efab209
+Author: Domenik Irrgang <domenikirrgang@gmail.com>
+Date:   Thu Aug 13 15:01:26 2020 +0200
+
+    version upgrade
+

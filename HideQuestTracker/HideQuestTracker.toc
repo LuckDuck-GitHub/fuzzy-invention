@@ -1,0 +1,8 @@
+## Title: Hide Quest Tracker (Classic)
+## Interface: 11302
+## Notes: Hides the quest tracker frame from the UI
+## Version: 1.0
+## Author: Papz
+
+HideQuestTracker.lua
+HideQuestTracker.xml

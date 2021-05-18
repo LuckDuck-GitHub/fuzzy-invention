@@ -1,0 +1,3216 @@
+﻿<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+	<Font name="PoisonerGameFontNormalSmall" font="Fonts\FRIZQT__.TTF" virtual="true"> 
+		<FontHeight>
+			<AbsValue val="9" />
+		</FontHeight>
+	</Font> 
+
+<!-- TabTemplate -->
+	<Button name="PoisonerOptions_TabTemplate" inherits="CharacterFrameTabButtonTemplate" virtual="true">
+		<Scripts>
+			<OnClick>
+				PoisonerOptionsTab_OnClick(self);
+			</OnClick>
+		</Scripts>
+	</Button>
+	
+
+<!-- SettingsFrame -->
+	<Frame name="PoisonerOptions_SettingsFrame" frameStrata="DIALOG" enableMouse="true" movable="true" hidden="true" parent="UIParent">
+		<Size>
+			<AbsDimension x="450" y="500"/>
+		</Size>
+		<Anchors>
+			<Anchor point="CENTER"/>
+		</Anchors>
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11" />
+			</BackgroundInsets>
+			<TileSize>
+				<AbsValue val="32" />
+			</TileSize>
+			<EdgeSize>
+				<AbsValue val="32" />
+			</EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer>
+				<Texture name="$parentTitleBorder" file="Interface\DialogFrame\UI-DialogBox-Header">
+					<Size>
+						<AbsDimension x="180" y="32" />
+          			</Size>
+         			 <Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="5" />
+							</Offset>
+						</Anchor>
+         			 </Anchors>
+         			 <TexCoords left="0.2" right="0.8" top="0" bottom="0.6" />
+        		</Texture>
+				<FontString name="$parentTitleString" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_SETTINGS">
+					<Size>
+						<AbsDimension x="0" y="0" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset>
+								<AbsDimension x="0" y="-5" />
+							</Offset>
+            				</Anchor>
+          			</Anchors>
+         			<FontHeight>
+						<AbsValue val="12" />
+					</FontHeight>
+					<Color r="1" g="0.8196079" b="0" />
+					<Shadow>
+						<Color r="0" g="0" b="0" />
+							<Offset>
+								<AbsDimension x="1" y="-1" />
+							</Offset>
+					</Shadow>
+				</FontString>
+			</Layer>
+		</Layers>
+		
+		<Frames>
+		<!-- TABS -->
+			<Button name="$parentTab1" inherits="PoisonerOptions_TabTemplate" id="1" text="PoisonerOptions_SETTINGS1">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="BOTTOMLEFT" relativeTo="$parent">
+						<Offset>
+							<AbsDimension x="15" y="7"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentTab2" inherits="PoisonerOptions_TabTemplate" id="2" text="PoisonerOptions_SETTINGS2">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab1" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-8" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentTab3" inherits="PoisonerOptions_TabTemplate" id="3" text="PoisonerOptions_SETTINGS3">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab2" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-8" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentTab4" inherits="PoisonerOptions_TabTemplate" id="4" text="PoisonerOptions_SETTINGS4">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab3" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-8" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			<Button name="$parentTab5" inherits="PoisonerOptions_TabTemplate" id="5" text="PoisonerOptions_SETTINGS5">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="$parentTab4" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-8" y="0"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+			</Button>
+			
+		<!-- CLOSE button -->
+			<Button name="PoisonerOptions_SettingsClose" inherits="UIPanelButtonTemplate" text="PoisonerOptions_SETTINGS_CLOSE">
+				<Size>
+					<AbsDimension x="80" y="30"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="$parent" relativePoint="BOTTOMRIGHT">
+						<Offset>
+							<AbsDimension x="-10" y="10"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						PoisonerOptions_SettingsFrame:Hide();
+						<!--PoisonerOptions_CallUpdate();-->
+					</OnClick>
+				</Scripts>
+			</Button>
+		<!-- SAVE button -->
+			<Button name="PoisonerOptions_SettingsSave" inherits="UIPanelButtonTemplate" text="PoisonerOptions_SETTINGS_SAVE">
+				<Size>
+					<AbsDimension x="80" y="30"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="PoisonerOptions_SettingsClose" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="0" y="5"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnClick>
+						PoisonerOptions_SaveSettings();
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			
+	<!-- Frames -->
+
+		<!-- Settings Frame -->
+			<Frame name="PoisonerOptions_SettingsFrame1">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+					<!-- Options Title -->
+						<FontString name="PoisonerOptions_OptionsTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_OptionsTitle">
+							<Size>
+								<!--<AbsDimension x="200" y="0" />-->
+							</Size>
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP">
+									<Offset x="0" y="-30"/>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="14" />
+							</FontHeight>
+							<Color r="1" g="1" b="1" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Frame name="PoisonerOptions_BaseOptionsFrame">
+						<Size>
+							<AbsDimension x="300" y="40"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+								<Offset x="20" y="-50"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+							
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Enable Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_Enable" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_BaseOptionsFrame" relativePoint="TOPLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_Enable);
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 14)
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+						
+						</Frames>
+					</Frame>
+					
+					<Frame name="PoisonerOptions_MinimapButtonFrame">
+						<Size>
+							<AbsDimension x="300" y="160"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_BaseOptionsFrame" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- MinimapButton Title -->
+								<FontString name="PoisonerOptions_MinimapButtonTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_MBTitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MinimapButtonFrame" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- MinimapButton Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MBShow" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MinimapButtonTitle" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="-5"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MBShow);										
+										<!--getglobal(self:GetName().."Text"):SetTextColor(1, 1, 1, 1)
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 11)-->
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+										if (POISONER_CONFIG.Buttons.LDBIcon.hide == "false") then
+											PoisonerOptions_ChkBox_MenuParentMinimapText:SetTextColor(0.94, 0.77, 0, 1)
+										elseif (POISONER_CONFIG.Buttons.LDBIcon.hide == "true") then
+											PoisonerOptions_ChkBox_MenuParentMinimapText:SetTextColor(0.37647058823529411764705882352941, 0.37647058823529411764705882352941, 0.37647058823529411764705882352941, 1)
+										end
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- FreeButton Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_FBShow" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_MBShow" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_FBShow);										
+										<!--getglobal(self:GetName().."Text"):SetTextColor(1, 1, 1, 1)
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 11)-->
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+										if (POISONER_CONFIG.Buttons.FreeButton.Active == 1) then
+											PoisonerOptions_ChkBox_FBLockText:SetTextColor(1, 1, 1, 1)
+										elseif (POISONER_CONFIG.Buttons.FreeButton.Active == 0) then
+											PoisonerOptions_ChkBox_FBLockText:SetTextColor(0.37647058823529411764705882352941, 0.37647058823529411764705882352941, 0.37647058823529411764705882352941, 1)
+										end
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Lock/Unlock Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_FBLock" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_FBShow" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_FBLock);										
+										getglobal(self:GetName().."Text"):SetTextColor(1, 1, 1, 1)
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 11)
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Reset FB position Button -->
+							<Button name="PoisonerOptions_ResetFBPosition" inherits="UIPanelButtonTemplate" text="PoisonerOptions_LB_FBReset">
+								<Size>
+									<AbsDimension x="120" y="20"/>
+								</Size>
+								<Anchors>
+									<Anchor point="LEFT" relativeTo="PoisonerOptions_ChkBox_FBShowText" relativePoint="RIGHT">
+											<Offset x="10" y="0"/>
+									</Anchor>
+								</Anchors>
+								<NormalFont style="PoisonerGameFontNormalSmall" />
+								<Scripts>
+									<OnClick>
+										Poisoner_DragReset();
+										<!--PoisonerOptions_SaveSettings();-->
+									</OnClick>
+								</Scripts>
+							</Button>
+							
+							<Frame name="PoisonerOptions_FBSliderFrame">
+								<Size>
+									<AbsDimension x="300" y="30"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_FBShow" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="-30"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Scale Slider Title -->
+										<FontString name="PoisonerOptions_FB_ScaleSliderTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Scale" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="140" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="12" />
+											</FontHeight>
+											<Color r="0.7" g="0.7" b="0.7" />
+											<!--<Color r="1" g="0.8196079" b="0" />-->
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+										<!-- Alpha Slider Title -->
+										<FontString name="PoisonerOptions_FB_AlphaSliderTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Alpha" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="140" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+													<Offset x="0" y="-35"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="12" />
+											</FontHeight>
+											<Color r="0.7" g="0.7" b="0.7" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+									<!-- Scale Slider -->
+									<Slider name="PoisonerOptions_FB_ScaleSlider" inherits="OptionsSliderTemplate"  minValue="0.1" maxValue="2" valueStep="0.1">
+										<Size>
+												<AbsDimension x="160" y="16"/>
+										</Size>
+										<Anchors>
+											<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_FB_ScaleSliderTitle" relativePoint="TOPRIGHT">
+												<Offset x="0" y="0"/>
+											</Anchor>
+										</Anchors>
+										<Scripts>
+											 <OnLoad>
+												getglobal(self:GetName().."High"):SetText("2");
+												getglobal(self:GetName().."Low"):SetText("0.1");
+											</OnLoad>
+											<OnValueChanged>
+												local value = self:GetValue()
+												local newValue = Poisoner_round(value,1)
+												self:SetValue(newValue)
+												getglobal(self:GetName().."Text"):SetText(newValue);
+												Poisoner_FreeButton:SetScale(newValue);
+												POISONER_CONFIG.Buttons.FreeButton.Scale = newValue
+											</OnValueChanged>
+										</Scripts>
+									</Slider>
+									<!-- Alpha Slider -->
+									<Slider name="PoisonerOptions_FB_AlphaSlider" inherits="OptionsSliderTemplate"  minValue="0.1" maxValue="1" valueStep="0.1">
+										<Size>
+												<AbsDimension x="160" y="16"/>
+										</Size>
+										<Anchors>
+											<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_FB_AlphaSliderTitle" relativePoint="TOPRIGHT">
+												<Offset x="0" y="0"/>
+											</Anchor>
+										</Anchors>
+										<Scripts>
+											 <OnLoad>
+												getglobal(self:GetName().."High"):SetText("1");
+												getglobal(self:GetName().."Low"):SetText("0.1");
+											</OnLoad>
+											<OnValueChanged>
+												local value = self:GetValue()
+												local newValue = Poisoner_round(value,1)
+												self:SetValue(newValue)
+												getglobal(self:GetName().."Text"):SetText(newValue);
+												Poisoner_FreeButton:SetAlpha(newValue);
+												POISONER_CONFIG.Buttons.FreeButton.Alpha = newValue
+											</OnValueChanged>
+										</Scripts>
+									</Slider>
+								</Frames>
+							</Frame>
+							
+						</Frames>
+					</Frame>
+				
+					<!-- Post-to-Chat Checkbox -->
+					<CheckButton name="PoisonerOptions_ChkBox_PoisonWeaponChatOuput" inherits="InterfaceOptionsCheckButtonTemplate">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MinimapButtonFrame" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="-10"/>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_PWChatOutput);
+								getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 14)
+								getglobal(self:GetName().."Text"):SetWidth(300)
+								getglobal(self:GetName().."Text"):SetJustifyH("LEFT")										
+								getglobal(self:GetName().."Text"):ClearAllPoints()
+								getglobal(self:GetName().."Text"):SetPoint("TOPLEFT","PoisonerOptions_ChkBox_PoisonWeaponChatOuput","TOPRIGHT",0,-5)
+							</OnLoad>
+							<PostClick>
+								PoisonerOptions_SaveSettings();
+							</PostClick>
+						</Scripts>
+					</CheckButton>
+					
+					<!-- Show Menu on mouseover -->
+					<Frame name="PoisonerOptions_ShowOnMouseover">
+						<Size>
+							<AbsDimension x="300" y="30"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_PoisonWeaponChatOuput" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="-20"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<FontString name="$parent_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_SOMTitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<CheckButton name="PoisonerOptions_ChkBox_ShowOnMouseover" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent_Title" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="-5"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_SOMChkBox);
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+						</Frames>
+					</Frame>
+					
+					<!-- AutoHide -->
+					<!-- AutoHide inCombat -->
+					<Frame name="PoisonerOptions_AutoHide">
+						<Size>
+							<AbsDimension x="300" y="30"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_ShowOnMouseover" relativePoint="BOTTOMLEFT">
+								<Offset x="-10" y="-20"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<FontString name="PoisonerOptions_AutoHide_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_AHTitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_AutoHide" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<CheckButton name="PoisonerOptions_ChkBox_AutoHide_inCombat" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_AutoHide_Title" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="-5"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_AH_inCombatChkBox);
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+						</Frames>
+					</Frame>
+					
+					
+				</Frames>
+			</Frame>
+			
+		<!-- Menu Frame -->
+			<Frame name="PoisonerOptions_SettingsFrame2">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+					<!-- Options Title -->
+						<FontString name="PoisonerOptions_MenuTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_MenuTitle">
+							<Size>
+								<!--<AbsDimension x="200" y="0" />-->
+							</Size>
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP">
+									<Offset x="0" y="-30"/>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="14" />
+							</FontHeight>
+							<Color r="1" g="1" b="1" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Frame name="PoisonerOptions_MenuFrame">
+						<Size>
+							<AbsDimension x="300" y="215"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+								<Offset x="20" y="-50"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Menu Parent Title -->
+								<FontString name="PoisonerOptions_MenuParentTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_MenuParentTitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="290" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<!-- Menu Position Title -->
+								<FontString name="PoisonerOptions_MenuPositionTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_MPTitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MenuParentTitle" relativePoint="TOPLEFT">
+											<Offset x="0" y="-90"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Menu Parent Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MenuParentOwn" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MenuParentTitle" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="-5"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MenuParentOwn);
+									</OnLoad>
+									<PostClick>
+										if PoisonerOptions_ChkBox_MenuParentOwn:GetChecked() then
+											PoisonerOptions_ChkBox_MenuParentMinimap:SetChecked(false)
+										else
+											PoisonerOptions_ChkBox_MenuParentMinimap:SetChecked(true)
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<CheckButton name="PoisonerOptions_ChkBox_MenuParentMinimap" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_MenuParentOwn" relativePoint="TOPLEFT">
+										<Offset x="150" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MenuParentMinimap);
+									</OnLoad>
+									<PostClick>
+										if PoisonerOptions_ChkBox_MenuParentMinimap:GetChecked() then
+											PoisonerOptions_ChkBox_MenuParentOwn:SetChecked(false)
+										else
+											PoisonerOptions_ChkBox_MenuParentOwn:SetChecked(true)
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Orientation Button -->
+							<Frame name="PoisonerOptions_OrientationButton">
+								<Size>
+									<AbsDimension x="30" y="30"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MenuPositionTitle" relativePoint="BOTTOMLEFT">
+										<Offset x="150" y="-30"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										local overlay = self:CreateTexture(nil, "OVERLAY")
+										overlay:SetWidth(53); overlay:SetHeight(53)
+										overlay:SetTexture("Interface\\Minimap\\MiniMap-TrackingBorder")
+										overlay:SetPoint("TOPLEFT")
+										local background = self:CreateTexture(nil, "BACKGROUND")
+										background:SetWidth(20); background:SetHeight(20)
+										background:SetTexture("Interface\\Minimap\\UI-Minimap-Background")
+										background:SetPoint("TOPLEFT", 7, -5)
+										local icon = self:CreateTexture(nil, "ARTWORK")
+										icon:SetWidth(20); icon:SetHeight(20)
+										icon:SetTexture("Interface\\Icons\\Spell_Nature_CorrosiveBreath")
+										icon:SetTexCoord(0.05, 0.95, 0.05, 0.95)
+										icon:SetPoint("TOPLEFT", 7, -5)
+									</OnLoad>
+								</Scripts>
+							</Frame>
+							<!-- Top Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MPTop" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="BOTTOM" relativeTo="PoisonerOptions_OrientationButton" relativePoint="TOP">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MPTop);
+										getglobal(self:GetName().."Text"):ClearAllPoints();
+										getglobal(self:GetName().."Text"):SetPoint("BOTTOM","PoisonerOptions_ChkBox_MPTop","TOP",0,0)
+										getglobal(self:GetName()):SetHitRectInsets(0, 0, -20, 0);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_UpdateMenuPositionCheckbox(self);
+										else
+											PoisonerOptions_UpdateMenuPositionCheckbox();
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- TopLeft Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MPTopLeft" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="BOTTOMRIGHT" relativeTo="PoisonerOptions_OrientationButton" relativePoint="TOPLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MPTopLeft);
+										getglobal(self:GetName().."Text"):ClearAllPoints();
+										getglobal(self:GetName().."Text"):SetPoint("RIGHT","PoisonerOptions_ChkBox_MPTopLeft","LEFT",0,1)
+										getglobal(self:GetName()):SetHitRectInsets(-100, 0, 0, 0);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_UpdateMenuPositionCheckbox(self);
+										else
+											PoisonerOptions_UpdateMenuPositionCheckbox();
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- TopRight Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MPTopRight" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="BOTTOMLEFT" relativeTo="PoisonerOptions_OrientationButton" relativePoint="TOPRIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MPTopRight);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_UpdateMenuPositionCheckbox(self);
+										else
+											PoisonerOptions_UpdateMenuPositionCheckbox();
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Left Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MPLeft" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="RIGHT" relativeTo="PoisonerOptions_OrientationButton" relativePoint="LEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MPLeft);
+										getglobal(self:GetName().."Text"):ClearAllPoints();
+										getglobal(self:GetName().."Text"):SetPoint("RIGHT","PoisonerOptions_ChkBox_MPLeft","LEFT",0,1)
+										getglobal(self:GetName()):SetHitRectInsets(-100, 0, 0, 0);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_UpdateMenuPositionCheckbox(self);
+										else
+											PoisonerOptions_UpdateMenuPositionCheckbox(PoisonerOptions_ChkBox_MPRight);
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Right Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MPRight" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="LEFT" relativeTo="PoisonerOptions_OrientationButton" relativePoint="RIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MPRight);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_UpdateMenuPositionCheckbox(self);
+										else
+											PoisonerOptions_UpdateMenuPositionCheckbox();
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Bottom Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MPBottom" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOP" relativeTo="PoisonerOptions_OrientationButton" relativePoint="BOTTOM">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MPBottom);
+										getglobal(self:GetName().."Text"):ClearAllPoints();
+										getglobal(self:GetName().."Text"):SetPoint("TOP","PoisonerOptions_ChkBox_MPBottom","BOTTOM",0,0)
+										getglobal(self:GetName()):SetHitRectInsets(0, 0, 0, -20);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_UpdateMenuPositionCheckbox(self);
+										else
+											PoisonerOptions_UpdateMenuPositionCheckbox();
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- BottomLeft Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MPBottomLeft" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPRIGHT" relativeTo="PoisonerOptions_OrientationButton" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MPBottomLeft);
+										getglobal(self:GetName().."Text"):ClearAllPoints();
+										getglobal(self:GetName().."Text"):SetPoint("RIGHT","PoisonerOptions_ChkBox_MPBottomLeft","LEFT",0,1)
+										getglobal(self:GetName()):SetHitRectInsets(-100, 0, 0, 0);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_UpdateMenuPositionCheckbox(self);
+										else
+											PoisonerOptions_UpdateMenuPositionCheckbox();
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- BottomRight Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_MPBottomRight" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_OrientationButton" relativePoint="BOTTOMRIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_MPBottomRight);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_UpdateMenuPositionCheckbox(self);
+										else
+											PoisonerOptions_UpdateMenuPositionCheckbox();
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							
+							<Button name="PoisonerOptions_MenuSortingButton" inherits="UIPanelButtonTemplate" text="Button Sorting">
+								<Size>
+									<AbsDimension x="120" y="30"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPRIGHT" relativeTo="PoisonerOptions_SettingsFrame" relativePoint="TOPRIGHT">
+											<Offset x="-10" y="-20"/>
+									</Anchor>
+								</Anchors>
+								<NormalFont style="PoisonerGameFontNormalSmall" />
+								<Scripts>
+									<OnClick>
+										PoisonerOptions_ToggleSortingFrames()
+									</OnClick>
+								</Scripts>
+							</Button>
+							
+							<Frame name="PoisonerOptions_MenuSliderFrame">
+								<Size>
+									<AbsDimension x="300" y="30"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_MenuParentOwn" relativePoint="BOTTOMLEFT">
+										<Offset x="5" y="-10"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Scale Slider Title -->
+										<FontString name="PoisonerOptions_Menu_ScaleSliderTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Scale" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="140" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="12" />
+											</FontHeight>
+											<Color r="0.7" g="0.7" b="0.7" />
+											<!--<Color r="1" g="0.8196079" b="0" />-->
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+										<!-- Alpha Slider Title -->
+									<!--	<FontString name="PoisonerOptions_Menu_AlphaSliderTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Alpha" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="140" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+													<Offset x="0" y="-35"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="12" />
+											</FontHeight>
+											<Color r="0.7" g="0.7" b="0.7" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>-->
+									</Layer>
+								</Layers>
+								<Frames>
+									<!-- Scale Slider -->
+									<Slider name="PoisonerOptions_Menu_ScaleSlider" inherits="OptionsSliderTemplate"  minValue="0.1" maxValue="2" valueStep="0.1">
+										<Size>
+												<AbsDimension x="160" y="16"/>
+										</Size>
+										<Anchors>
+											<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_Menu_ScaleSliderTitle" relativePoint="TOPRIGHT">
+												<Offset x="0" y="0"/>
+											</Anchor>
+										</Anchors>
+										<Scripts>
+											 <OnLoad>
+												getglobal(self:GetName().."High"):SetText("2");
+												getglobal(self:GetName().."Low"):SetText("0.1");
+											</OnLoad>
+											<OnValueChanged>
+												local value = self:GetValue()
+												local newValue = Poisoner_round(value,1)
+												self:SetValue(newValue)
+												getglobal(self:GetName().."Text"):SetText(newValue);
+												Poisoner_SetScale(newValue);
+												POISONER_CONFIG.Menu.Scale = newValue
+											</OnValueChanged>
+										</Scripts>
+									</Slider>
+									<!-- Alpha Slider -->
+								<!--	<Slider name="PoisonerOptions_Menu_AlphaSlider" inherits="OptionsSliderTemplate"  minValue="0.1" maxValue="1" valueStep="0.1">
+										<Size>
+												<AbsDimension x="140" y="16"/>
+										</Size>
+										<Anchors>
+											<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_Menu_AlphaSliderTitle" relativePoint="TOPRIGHT">
+												<Offset x="0" y="0"/>
+											</Anchor>
+										</Anchors>
+										<Scripts>
+											 <OnLoad>
+												getglobal(self:GetName().."High"):SetText("1");
+												getglobal(self:GetName().."Low"):SetText("0.1");
+											</OnLoad>
+											<OnValueChanged>
+												getglobal(self:GetName().."Text"):SetText(Poisoner_round(getglobal(self:GetName()):GetValue(),1));
+												local arg = (getglobal(self:GetName()):GetValue())
+												
+											</OnValueChanged>
+										</Scripts>
+									</Slider>-->
+								</Frames>
+							</Frame>
+							
+							<Frame name="PoisonerOptions_MenuSpacingSliderFrame">
+								<Size>
+									<AbsDimension x="300" y="75"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MenuFrame" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Menu Position Title -->
+										<FontString name="PoisonerOptions_MenuSpacingTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_MSpacingTitle" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="300" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="13" />
+											</FontHeight>
+											<Color r="1" g="1" b="1" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+										<!-- Menu Position Title -->
+										<FontString name="PoisonerOptions_MenuSpacingClickSave" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_ClickSaveToProceed" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="300" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MenuSpacingTitle" relativePoint="BOTTOMLEFT">
+													<Offset x="5" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="0.5" g="0.5" b="0.5" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+									<!-- Spacing Slider -->
+									<Slider name="PoisonerOptions_Menu_SpacingSlider" inherits="OptionsSliderTemplate"  minValue="-20" maxValue="20" valueStep="1">
+										<Size>
+												<AbsDimension x="300" y="16"/>
+										</Size>
+										<Anchors>
+											<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MenuSpacingTitle" relativePoint="BOTTOMLEFT">
+												<Offset x="15" y="-24"/>
+											</Anchor>
+										</Anchors>
+										<Scripts>
+											 <OnLoad>
+												getglobal(self:GetName().."High"):SetText("20");
+												getglobal(self:GetName().."Low"):SetText("-20");
+											</OnLoad>
+											<OnValueChanged>
+												local value = self:GetValue()
+												local newValue = Poisoner_round(value,0)
+												self:SetValue(newValue)
+												getglobal(self:GetName().."Text"):SetText(newValue);
+												POISONER_CONFIG.Menu.Spacing = newValue
+												<!--Poisoner_CreateButtons();-->
+											</OnValueChanged>
+										</Scripts>
+									</Slider>
+								</Frames>
+							</Frame>
+							
+						</Frames>
+					</Frame>
+					
+					<Frame name="PoisonerOptions_ToolTipFrame">
+						<Size>
+							<AbsDimension x="300" y="60"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MenuSpacingSliderFrame" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Minimap Title -->
+								<FontString name="PoisonerOptions_ToolTipTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_TTTitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Full ToolTip Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_ToolTipFull" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ToolTipTitle" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="-5"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_TTFull);
+									</OnLoad>
+									<PostClick>
+										if PoisonerOptions_ChkBox_ToolTipFull:GetChecked() then
+											PoisonerOptions_ChkBox_ToolTipName:SetChecked(false)
+										else
+											PoisonerOptions_ChkBox_ToolTipName:SetChecked(true)
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Name-only ToolTip Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_ToolTipName" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_ToolTipFull" relativePoint="TOPLEFT">
+										<Offset x="150" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_TTName);
+									</OnLoad>
+									<PostClick>
+										if PoisonerOptions_ChkBox_ToolTipName:GetChecked() then
+											PoisonerOptions_ChkBox_ToolTipFull:SetChecked(false)
+										else
+											PoisonerOptions_ChkBox_ToolTipFull:SetChecked(true)
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+						</Frames>
+					</Frame>
+					
+					<Frame name="PoisonerOptions_OverwritePresetFrame">
+						<Size>
+							<AbsDimension x="300" y="50"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ToolTipFrame" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Title -->
+								<FontString name="PoisonerOptions_OverwritePresetTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_OPTitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<!-- Info -->
+								<FontString name="PoisonerOptions_OverwritePresetInfo" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_OPInfo" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_OverwritePresetTitle" relativePoint="BOTTOMLEFT">
+											<Offset x="15" y="-30"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="11" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Overwrite Preset Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_OverwritePreset" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_OverwritePresetTitle" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="-5"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_OPActive);
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>							
+						</Frames>
+					</Frame>
+					
+				</Frames>
+			</Frame>
+			
+		<!-- Timer Menu -->
+			<Frame name="PoisonerOptions_SettingsFrame3">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+					<!-- Timer Title -->
+						<FontString name="PoisonerOptions_TimerTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_TimerTitle">
+							<Size>
+								<!--<AbsDimension x="200" y="0" />-->
+							</Size>
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP">
+									<Offset x="0" y="-30"/>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="14" />
+							</FontHeight>
+							<Color r="1" g="1" b="1" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Frame name="PoisonerOptions_Timer">
+						<Size>
+							<AbsDimension x="300" y="300"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+								<Offset x="20" y="-30"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Threshold Title -->
+								<FontString name="PoisonerOptions_ThresholdTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Threshold" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="140" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="5" y="-55"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<!-- TimerMinute Title -->
+								<FontString name="PoisonerOptions_TimerMinute" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_TimerMinute" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="140" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ThresholdTitle" relativePoint="BOTTOMLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<!--<Color r="1" g="0.8196079" b="0" />-->
+									<Color r="1" g="1" b="1" a="1"/>
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<!-- Weapon Title -->
+								<FontString name="PoisonerOptions_WeaponOutput" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_WeaponOutput" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="5" y="-155"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<!-- TimerOutput Title -->
+								<FontString name="PoisonerOptions_TimerOutput" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_TimerOutput" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="5" y="-270"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="13" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+						<!-- Timer Checkbox -->
+							<CheckButton name="PoisonerOptions_ChkBox_ShowTimer" inherits="InterfaceOptionsCheckButtonTemplate">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset x="0" y="-20"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_ShowTimer);
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 14)
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_CallUpdate()
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+						<!-- Timer Slider -->
+							<Slider name="PoisonerOptions_PoisonTimerSlider" inherits="OptionsSliderTemplate"  minValue="1" maxValue="25" valueStep="1">
+								<Size>
+										<AbsDimension x="150" y="16"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ThresholdTitle" relativePoint="TOPRIGHT">
+										<Offset x="0" y="-5"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									 <OnLoad>
+										getglobal(self:GetName().."High"):SetText("25");
+										getglobal(self:GetName().."Low"):SetText("1");
+									</OnLoad>
+									<OnValueChanged>
+										local value = self:GetValue()
+										local valueStep = self:GetValueStep()
+										local newValue = Poisoner_roundToNextX(value,0,valueStep)
+										self:SetValue(newValue)
+										getglobal(self:GetName().."Text"):SetText(newValue);
+										Poisoner_WarningThreshold = newValue;
+										POISONER_CONFIG.Timer.WarningThreshold = Poisoner_WarningThreshold;
+									</OnValueChanged>
+								</Scripts>
+							</Slider>
+						<!-- Ignore while fishing -->
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_IgnoreWhileFishing" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="-90"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_Timer_IgnoreWhileFishing);
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 13)
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+						<!-- Only show if instanced -->
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_OnlyInstanced" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_TimerOutput_IgnoreWhileFishing" relativePoint="BOTTOMLEFT">
+											<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_Timer_OnlyInstanced);
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 13)
+										getglobal(self:GetName().."Text"):SetWidth(300)
+										getglobal(self:GetName().."Text"):SetJustifyH("LEFT")
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- MainHand Output -->
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_MainHand" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_WeaponOutput" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="-10"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(INVTYPE_WEAPONMAINHAND);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_CallUpdate()
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- OffHand Output -->
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_OffHand" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_TimerOutput_MainHand" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(INVTYPE_WEAPONOFFHAND);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_CallUpdate()
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Audio Output -->
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_Audio" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_TimerOutput" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="-10"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(SOUND_LABEL);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_CallUpdate();
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Chat Output -->
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_Chat" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_TimerOutput_Audio" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_TimerOutput_Chat);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_CallUpdate()
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- ErrorFrame Output -->
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_ErrorFrame" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_TimerOutput_Chat" relativePoint="TOPLEFT">
+										<Offset x="150" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_TimerOutput_ErrorFrame);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_CallUpdate()
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Aura Output -->
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_Aura" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_TimerOutput_Chat" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_TimerOutput_Aura);
+									</OnLoad>
+									<PostClick>
+										if self:GetChecked() then
+											PoisonerOptions_CallUpdate()
+										end
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<CheckButton name="PoisonerOptions_ChkBox_TimerOutput_Aura_Lock" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_TimerOutput_Aura" relativePoint="TOPLEFT">
+										<Offset x="150" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_TimerOutput_Aura_Lock);
+										getglobal(self:GetName().."Text"):SetTextColor(1, 1, 1, 1)
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 11)
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- Aura Slider -->
+							<Frame name="PoisonerOptions_AuraSlider">
+								<Size>
+									<AbsDimension x="300" y="90"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_TimerOutput_Aura" relativePoint="BOTTOMLEFT">
+										<Offset x="20" y="-10"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Scale Slider Title -->
+										<FontString name="PoisonerOptions_Timer_ScaleSliderTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Scale" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="140" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="12" />
+											</FontHeight>
+											<Color r="0.7" g="0.7" b="0.7" />
+											<!--<Color r="1" g="0.8196079" b="0" />-->
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+										<!-- Alpha Slider Title -->
+										<FontString name="PoisonerOptions_Timer_AlphaSliderTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Alpha" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="140" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+													<Offset x="0" y="-35"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="12" />
+											</FontHeight>
+											<Color r="0.7" g="0.7" b="0.7" />
+											<!--<Color r="1" g="0.8196079" b="0" />-->
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+									<!-- Scale Slider -->
+									<Slider name="PoisonerOptions_PoisonTimerScaleSlider" inherits="OptionsSliderTemplate"  minValue="0.1" maxValue="2" valueStep="0.1">
+										<Size>
+												<AbsDimension x="160" y="16"/>
+										</Size>
+										<Anchors>
+											<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_Timer_ScaleSliderTitle" relativePoint="TOPRIGHT">
+												<Offset x="0" y="0"/>
+											</Anchor>
+										</Anchors>
+										<Scripts>
+											 <OnLoad>
+												getglobal(self:GetName().."High"):SetText("2");
+												getglobal(self:GetName().."Low"):SetText("0.1");
+												<!--getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_Scale);-->
+											</OnLoad>
+											<OnValueChanged>
+												local value = self:GetValue()
+												local newValue = Poisoner_round(value,1)
+												self:SetValue(newValue)
+												getglobal(self:GetName().."Text"):SetText(newValue);
+												PoisonerTimer_IconFrameScale = newValue
+												PoisonerTimer_IconFrame:SetScale(PoisonerTimer_IconFrameScale)
+												POISONER_CONFIG.Timer.Scale = PoisonerTimer_IconFrameScale
+											</OnValueChanged>
+										</Scripts>
+									</Slider>
+									<!-- Alpha Slider -->
+									<Slider name="PoisonerOptions_PoisonTimerAlphaSlider" inherits="OptionsSliderTemplate"  minValue="0.1" maxValue="1" valueStep="0.1">
+										<Size>
+												<AbsDimension x="160" y="16"/>
+										</Size>
+										<Anchors>
+											<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_Timer_AlphaSliderTitle" relativePoint="TOPRIGHT">
+												<Offset x="0" y="0"/>
+											</Anchor>
+										</Anchors>
+										<Scripts>
+											 <OnLoad>
+												getglobal(self:GetName().."High"):SetText("1");
+												getglobal(self:GetName().."Low"):SetText("0.1");
+												<!--getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_Alpha);-->
+											</OnLoad>
+											<OnValueChanged>
+												local value = self:GetValue()
+												local newValue = Poisoner_round(value,1)
+												self:SetValue(newValue)
+												getglobal(self:GetName().."Text"):SetText(newValue);
+												PoisonerTimer_IconFrameAlpha = newValue
+												PoisonerTimer_IconFrame:SetAlpha(PoisonerTimer_IconFrameAlpha)
+												POISONER_CONFIG.Timer.Alpha = PoisonerTimer_IconFrameAlpha
+											</OnValueChanged>
+										</Scripts>
+									</Slider>
+								</Frames>
+							</Frame>
+						</Frames>
+					</Frame>
+					
+				
+				</Frames>
+			</Frame>
+			
+		<!-- Poison Buy Menu -->
+			<Frame name="PoisonerOptions_SettingsFrame4">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+					<!-- AutoBuy Title -->
+						<FontString name="PoisonerOptions_PoisonTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_AutoBuyTitle">
+							<Size>
+								<!--<AbsDimension x="200" y="0" />-->
+							</Size>
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP">
+									<Offset x="0" y="-30"/>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="14" />
+							</FontHeight>
+							<Color r="1" g="1" b="1" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+				<!-- AutoBuy -->
+					<Frame name="PoisonerOptions_AutoBuy">
+						<Size>
+							<AbsDimension x="300" y="60"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+								<Offset x="20" y="-50"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Info -->
+								<FontString name="PoisonerOptions_AutoBuyInfo" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_AutoBuyInfo" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="80" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="BOTTOMRIGHT" relativeTo="PoisonerOptions_SettingsSave" relativePoint="TOPRIGHT">
+											<Offset x="0" y="20"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="11" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<CheckButton name="PoisonerOptions_ChkBox_AutoBuy" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<!--<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_AutoBuyTitle" relativePoint="BOTTOMLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>-->
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_AutoBuyCheckbox);
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 13);
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+										if (POISONER_CONFIG.Buy.Active == 1) then
+											PoisonerOptions_ChkBox_AutoBuy_PromptText:SetTextColor(0.94, 0.77, 0, 1)
+										elseif (POISONER_CONFIG.Buy.Active == 0) then
+											PoisonerOptions_ChkBox_AutoBuy_PromptText:SetTextColor(0.37647058823529411764705882352941, 0.37647058823529411764705882352941, 0.37647058823529411764705882352941, 1)
+										end
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<!-- AutoBuy Prompt -->
+							<CheckButton name="PoisonerOptions_ChkBox_AutoBuy_Prompt" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_AutoBuy" relativePoint="BOTTOMLEFT">
+										<Offset x="10" y="5"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_AutoBuyPrompt);
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 12);
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+							<CheckButton name="PoisonerOptions_ChkBox_AutoBuy_Check" inherits="InterfaceOptionsCheckButtonTemplate" justifyH="LEFT">
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_AutoBuy_Prompt" relativePoint="BOTTOMLEFT">
+										<Offset x="-10" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_AutoBuyCheck);
+										getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 13);
+										getglobal(self:GetName().."Text"):SetWidth(230)
+										getglobal(self:GetName().."Text"):SetJustifyH("LEFT")
+										getglobal(self:GetName().."Text"):ClearAllPoints()
+										getglobal(self:GetName().."Text"):SetPoint("TOPLEFT","PoisonerOptions_ChkBox_AutoBuy_Check","TOPRIGHT",0,-5)
+									</OnLoad>
+									<PostClick>
+										PoisonerOptions_SaveSettings();
+									</PostClick>
+								</Scripts>
+							</CheckButton>
+						</Frames>
+					</Frame>
+				<!-- Cripling Poison -->
+					<Frame name="PoisonerOptions_CP">
+						<Size>
+							<AbsDimension x="300" y="70"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+								<Offset x="20" y="-150"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- AutoBuy Amount Title -->
+								<FontString name="PoisonerOptions_AutoBuyTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_AutoBuyAmount" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="160" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="BOTTOMLEFT" relativeTo="$parent" relativePoint="TOPRIGHT">
+											<Offset x="-45" y="-25"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<Color r="1" g="0.8196079" b="0" />
+									<!--<Color r="0.7" g="0.7" b="0.7" />-->
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							<!-- Poison Title -->
+								<FontString name="PoisonerOptions_CP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_CPtitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="180" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<!--<Color r="1" g="0.8196079" b="0" />-->
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<FontString name="PoisonerOptions_TextCP" font="Fonts\FRIZQT__.TTF" text="0" justifyH="RIGHT">
+									<Size>
+										<AbsDimension x="30" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset>
+												<AbsDimension x="260" y="-30"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="14" />
+									</FontHeight>
+									<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+						<!-- Poison Button -->
+							<Button name="PoisonerOptions_CP" inherits="ActionButtonTemplate" enableMouse="true">
+								<Size>
+									<AbsDimension x="40" y="40"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<NormalTexture file="Interface\Icons\Ability_PoisonSting">
+									-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+										<Size>
+											<AbsDimension x="32" y="32"/> 
+										</Size>
+								</NormalTexture>
+								<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+								</HighlightTexture>
+								<Scripts>
+									<OnLoad>
+									</OnLoad>
+									<OnEnter>
+										<!--tempCP = GetItemCount(GetLocalizedItemName("Cripling Poison"))-->
+										GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+										GameTooltip:SetHyperlink("item:3775:0:0:0:0:0:0:0")
+										<!--if tempCP==0 then
+											GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+										else
+											GameTooltip:AddLine(haveN..""..tempCP..""..fromN.."" ..CP, 0, 1.0, 0 )
+										end-->
+										GameTooltip:Show()
+									</OnEnter>
+									<OnLeave>
+										GameTooltip:Hide()
+									</OnLeave>
+								</Scripts>
+							</Button>
+							<Slider name="PoisonerOptions_Slider_CP" inherits="OptionsSliderTemplate" minValue="0" maxValue="100" valueStep="5">
+								<Size>
+									<AbsDimension x="200" y="16"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset>
+										<AbsDimension x="50" y="-30" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."High"):SetText("100");
+										getglobal(self:GetName().."Low"):SetText("0");
+									</OnLoad>
+									<OnValueChanged>
+										local value = self:GetValue()
+										local valueStep = self:GetValueStep()
+										local newValue = Poisoner_roundToNextX(value,0,valueStep)
+										self:SetValue(newValue)
+										getglobal(self:GetName().."Text"):SetText(newValue);
+									</OnValueChanged>
+								</Scripts>
+							</Slider>
+						</Frames>
+					</Frame>
+				<!-- Deadly Poison -->
+					<Frame name="PoisonerOptions_DP">
+						<Size>
+							<AbsDimension x="300" y="70"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_CP" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+							<!-- Poison Title -->
+								<FontString name="PoisonerOptions_DP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_DPtitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="180" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<!--<Color r="1" g="0.8196079" b="0" />-->
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<FontString name="PoisonerOptions_TextDP" font="Fonts\FRIZQT__.TTF" text="0" justifyH="RIGHT">
+									<Size>
+										<AbsDimension x="30" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset>
+												<AbsDimension x="260" y="-30"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="14" />
+									</FontHeight>
+									<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+						<!-- Poison Button -->
+							<Button name="PoisonerOptions_DP" inherits="ActionButtonTemplate" enableMouse="true">
+								<Size>
+									<AbsDimension x="40" y="40"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<NormalTexture file="Interface\Icons\Ability_Rogue_DualWeild">
+									-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+										<Size>
+											<AbsDimension x="32" y="32"/> 
+										</Size>
+								</NormalTexture>
+								<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+								</HighlightTexture>
+								<Scripts>
+									<OnLoad>
+									</OnLoad>
+									<OnEnter>
+										<!--tempDP = GetItemCount(GetLocalizedItemName("Deadly Poison"))-->
+										GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+										GameTooltip:SetHyperlink("item:2892:0:0:0:0:0:0:0")
+										<!--if tempDP==0 then
+											GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+										else
+											GameTooltip:AddLine(haveN..""..tempDP..""..fromN.."" ..DP, 0, 1.0, 0 )
+										end-->
+										GameTooltip:Show()
+									</OnEnter>
+									<OnLeave>
+										GameTooltip:Hide()
+									</OnLeave>
+								</Scripts>
+							</Button>
+							<Slider name="PoisonerOptions_Slider_DP" inherits="OptionsSliderTemplate" minValue="0" maxValue="100" valueStep="5">
+								<Size>
+									<AbsDimension x="200" y="16"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset>
+										<AbsDimension x="50" y="-30" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."High"):SetText("100");
+										getglobal(self:GetName().."Low"):SetText("0");
+									</OnLoad>
+									<OnValueChanged>
+										local value = self:GetValue()
+										local valueStep = self:GetValueStep()
+										local newValue = Poisoner_roundToNextX(value,0,valueStep)
+										self:SetValue(newValue)
+										getglobal(self:GetName().."Text"):SetText(newValue);
+									</OnValueChanged>
+								</Scripts>
+							</Slider>
+						</Frames>
+					</Frame>
+				<!-- Instant Poison -->
+					<Frame name="PoisonerOptions_IP">
+						<Size>
+							<AbsDimension x="300" y="70"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DP" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+							<!-- Poison Title -->
+								<FontString name="PoisonerOptions_IP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_IPtitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="180" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<!--<Color r="1" g="0.8196079" b="0" />-->
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<FontString name="PoisonerOptions_TextIP" font="Fonts\FRIZQT__.TTF" text="0" justifyH="RIGHT">
+									<Size>
+										<AbsDimension x="30" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset>
+												<AbsDimension x="260" y="-30"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="14" />
+									</FontHeight>
+									<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+						<!-- Poison Button -->
+							<Button name="PoisonerOptions_IP" inherits="ActionButtonTemplate" enableMouse="true">
+								<Size>
+									<AbsDimension x="40" y="40"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<NormalTexture file="Interface\Icons\Ability_Poisons">
+									-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+										<Size>
+											<AbsDimension x="32" y="32"/> 
+										</Size>
+								</NormalTexture>
+								<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+								</HighlightTexture>
+								<Scripts>
+									<OnLoad>
+									</OnLoad>
+									<OnEnter>
+										<!--tempAP = GetItemCount(GetLocalizedItemName("Instant Poison"))-->
+										GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+										GameTooltip:SetHyperlink("item:6947:0:0:0:0:0:0:0")
+										<!--if tempAP==0 then
+											GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+										else
+											GameTooltip:AddLine(haveN..""..tempIP..""..fromN.."" ..IP, 0, 1.0, 0 )
+										end-->
+										GameTooltip:Show()
+									</OnEnter>
+									<OnLeave>
+										GameTooltip:Hide()
+									</OnLeave>
+								</Scripts>
+							</Button>
+							<Slider name="PoisonerOptions_Slider_IP" inherits="OptionsSliderTemplate" minValue="0" maxValue="100" valueStep="5">
+								<Size>
+									<AbsDimension x="200" y="16"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset>
+										<AbsDimension x="50" y="-30" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."High"):SetText("100");
+										getglobal(self:GetName().."Low"):SetText("0");
+									</OnLoad>
+									<OnValueChanged>
+										local value = self:GetValue()
+										local valueStep = self:GetValueStep()
+										local newValue = Poisoner_roundToNextX(value,0,valueStep)
+										self:SetValue(newValue)
+										getglobal(self:GetName().."Text"):SetText(newValue);
+									</OnValueChanged>
+								</Scripts>
+							</Slider>
+						</Frames>
+					</Frame>
+				<!-- Mind-numbing Poison -->
+					<Frame name="PoisonerOptions_MP">
+						<Size>
+							<AbsDimension x="300" y="70"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_IP" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+							<!-- Poison Title -->
+								<FontString name="PoisonerOptions_MP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_MPtitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="180" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<!--<Color r="1" g="0.8196079" b="0" />-->
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<FontString name="PoisonerOptions_TextMP" font="Fonts\FRIZQT__.TTF" text="0" justifyH="RIGHT">
+									<Size>
+										<AbsDimension x="30" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset>
+												<AbsDimension x="260" y="-30"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="14" />
+									</FontHeight>
+									<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+						<!-- Poison Button -->
+							<Button name="PoisonerOptions_MP" inherits="ActionButtonTemplate" enableMouse="true">
+								<Size>
+									<AbsDimension x="40" y="40"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<NormalTexture file="Interface\Icons\Spell_Nature_NullifyDisease">
+									-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+										<Size>
+											<AbsDimension x="32" y="32"/> 
+										</Size>
+								</NormalTexture>
+								<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+								</HighlightTexture>
+								<Scripts>
+									<OnLoad>
+									</OnLoad>
+									<OnEnter>
+										<!--tempMP = GetItemCount(GetLocalizedItemName("Mind-numbing Poison"))-->
+										GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+										GameTooltip:SetHyperlink("item:5237:0:0:0:0:0:0:0")
+										<!--if tempMP==0 then
+											GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+										else
+											GameTooltip:AddLine(haveN..""..tempMP..""..fromN.."" ..MP, 0, 1.0, 0 )
+										end-->
+										GameTooltip:Show()
+									</OnEnter>
+									<OnLeave>
+										GameTooltip:Hide()
+									</OnLeave>
+								</Scripts>
+							</Button>
+							<Slider name="PoisonerOptions_Slider_MP" inherits="OptionsSliderTemplate" minValue="0" maxValue="100" valueStep="5">
+								<Size>
+									<AbsDimension x="200" y="16"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset>
+										<AbsDimension x="50" y="-30" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."High"):SetText("100");
+										getglobal(self:GetName().."Low"):SetText("0");
+									</OnLoad>
+									<OnValueChanged>
+										local value = self:GetValue()
+										local valueStep = self:GetValueStep()
+										local newValue = Poisoner_roundToNextX(value,0,valueStep)
+										self:SetValue(newValue)
+										getglobal(self:GetName().."Text"):SetText(newValue);
+									</OnValueChanged>
+								</Scripts>
+							</Slider>
+						</Frames>
+					</Frame>
+				<!-- Wound Poison -->
+					<Frame name="PoisonerOptions_WP">
+						<Size>
+							<AbsDimension x="300" y="70"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_MP" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+							<!-- Poison Title -->
+								<FontString name="PoisonerOptions_WP_Title" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_WPtitle" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="180" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<!--<Color r="1" g="0.8196079" b="0" />-->
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<FontString name="PoisonerOptions_TextWP" font="Fonts\FRIZQT__.TTF" text="0" justifyH="RIGHT">
+									<Size>
+										<AbsDimension x="30" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset>
+												<AbsDimension x="260" y="-30"/>
+											</Offset>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="14" />
+									</FontHeight>
+									<Color r="1" g="0.8196079" b="0" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+						<!-- Poison Button -->
+							<Button name="PoisonerOptions_WP" inherits="ActionButtonTemplate" enableMouse="true">
+								<Size>
+									<AbsDimension x="40" y="40"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<NormalTexture file="Interface\Icons\INV_Misc_Herb_16">
+									-- <TexCoords left="0" right="1" top="0" bottom="1"/>
+										<Size>
+											<AbsDimension x="32" y="32"/> 
+										</Size>
+								</NormalTexture>
+								<HighlightTexture name="$parentHighlightTexture" alphaMode="add" file="Interface\Buttons\ButtonHilight-Square">
+								</HighlightTexture>
+								<Scripts>
+									<OnLoad>
+									</OnLoad>
+									<OnEnter>
+										<!--tempWP = GetItemCount(GetLocalizedItemName("Wound Poison"))-->
+										GameTooltip_SetDefaultAnchor(GameTooltip, UIParent)
+										GameTooltip:SetHyperlink("item:10918:0:0:0:0:0:0:0")
+										<!--if tempWP==0 then
+											GameTooltip:AddLine(notininventory, 1.0, 0, 0 )
+										else
+											GameTooltip:AddLine(haveN..""..tempWP..""..fromN.."" ..WP, 0, 1.0, 0 )
+										end-->
+										GameTooltip:Show()
+									</OnEnter>
+									<OnLeave>
+										GameTooltip:Hide()
+									</OnLeave>
+								</Scripts>
+							</Button>
+							<Slider name="PoisonerOptions_Slider_WP" inherits="OptionsSliderTemplate" minValue="0" maxValue="100" valueStep="5">
+								<Size>
+									<AbsDimension x="200" y="16"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+										<Offset>
+										<AbsDimension x="50" y="-30" />
+										</Offset>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									<OnLoad>
+										getglobal(self:GetName().."High"):SetText("100");
+										getglobal(self:GetName().."Low"):SetText("0");
+									</OnLoad>
+									<OnValueChanged>
+										local value = self:GetValue()
+										local valueStep = self:GetValueStep()
+										local newValue = Poisoner_roundToNextX(value,0,valueStep)
+										self:SetValue(newValue)
+										getglobal(self:GetName().."Text"):SetText(newValue);
+									</OnValueChanged>
+								</Scripts>
+							</Slider>
+						</Frames>
+					</Frame>
+					
+				</Frames>
+			</Frame>
+		
+		<!-- Preset Frame -->
+			<Frame name="PoisonerOptions_SettingsFrame5">
+				<Size>
+					<!--<AbsDimension x="390" y="326"/>-->
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"/>
+					<Anchor point="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer>
+					<!-- Preset Title -->
+						<FontString name="PoisonerOptions_PresetTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_PresetTitle">
+							<Size>
+								<!--<AbsDimension x="200" y="0" />-->
+							</Size>
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="TOP">
+									<Offset x="0" y="-30"/>
+								</Anchor>
+							</Anchors>
+							<FontHeight>
+								<AbsValue val="14" />
+							</FontHeight>
+							<Color r="1" g="1" b="1" />
+							<Shadow>
+								<Color r="0" g="0" b="0" />
+									<Offset>
+										<AbsDimension x="1" y="-1" />
+									</Offset>
+							</Shadow>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Frames>
+					<Frame name="PoisonerOptions_DropdownFrame">
+						<Size>
+							<AbsDimension x="300" y="80"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+								<Offset x="20" y="-50"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Preset Title -->
+								<FontString name="PoisonerOptions_PresetTitle_Normal" font="Fonts\FRIZQT__.TTF" text="DEFAULT" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Mainhand Poison preset -->
+							<Frame name="PoisonerOptions_DropdownFrame1">
+								<Size>
+									<AbsDimension x="170" y="80"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Mainhand Title -->
+										<FontString name="PoisonerOptions_MainhandTitle" font="Fonts\FRIZQT__.TTF" text="INVTYPE_WEAPONMAINHAND" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="180" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame1" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="1" g="0.8196079" b="0" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+								</Frames>
+							</Frame>
+							<!-- Offhand Poison preset -->
+							<Frame name="PoisonerOptions_DropdownFrame2">
+								<Size>
+									<AbsDimension x="170" y="160"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame1" relativePoint="TOPRIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Offhand Title -->
+										<FontString name="PoisonerOptions_OffhandTitle" font="Fonts\FRIZQT__.TTF" text="INVTYPE_WEAPONOFFHAND" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="180" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame2" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="1" g="0.8196079" b="0" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+								</Frames>
+							</Frame>
+							
+						</Frames>
+					</Frame>
+					
+					<Frame name="PoisonerOptions_DropdownFrame_SHIFT">
+						<Size>
+							<AbsDimension x="300" y="80"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Preset Title -->
+								<FontString name="PoisonerOptions_PresetTitle_SHIFT" font="Fonts\FRIZQT__.TTF" text="SHIFT_KEY_TEXT" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Mainhand Poison preset -->
+							<Frame name="PoisonerOptions_DropdownFrame_SHIFT1">
+								<Size>
+									<AbsDimension x="170" y="80"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_SHIFT" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Mainhand Title -->
+										<FontString name="PoisonerOptions_Mainhand_SHIFTTitle" font="Fonts\FRIZQT__.TTF" text="INVTYPE_WEAPONMAINHAND" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="180" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_SHIFT1" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="1" g="0.8196079" b="0" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+								</Frames>
+							</Frame>
+							<!-- Offhand Poison preset -->
+							<Frame name="PoisonerOptions_DropdownFrame_SHIFT2">
+								<Size>
+									<AbsDimension x="170" y="160"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_SHIFT1" relativePoint="TOPRIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Offhand Title -->
+										<FontString name="PoisonerOptions_Offhand_SHIFTTitle" font="Fonts\FRIZQT__.TTF" text="INVTYPE_WEAPONOFFHAND" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="180" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_SHIFT2" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="1" g="0.8196079" b="0" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+								</Frames>
+							</Frame>
+							
+						</Frames>
+					</Frame>
+					
+					<Frame name="PoisonerOptions_DropdownFrame_CTRL">
+						<Size>
+							<AbsDimension x="300" y="80"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_SHIFT" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Preset Title -->
+								<FontString name="PoisonerOptions_PresetTitle_CTRL" font="Fonts\FRIZQT__.TTF" text="CTRL_KEY_TEXT" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Mainhand Poison preset -->
+							<Frame name="PoisonerOptions_DropdownFrame_CTRL1">
+								<Size>
+									<AbsDimension x="170" y="80"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_CTRL" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Mainhand Title -->
+										<FontString name="PoisonerOptions_Mainhand_CTRLTitle" font="Fonts\FRIZQT__.TTF" text="INVTYPE_WEAPONMAINHAND" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="180" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_CTRL1" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="1" g="0.8196079" b="0" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+								</Frames>
+							</Frame>
+							<!-- Offhand Poison preset -->
+							<Frame name="PoisonerOptions_DropdownFrame_CTRL2">
+								<Size>
+									<AbsDimension x="170" y="160"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_CTRL1" relativePoint="TOPRIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Offhand Title -->
+										<FontString name="PoisonerOptions_Offhand_CTRLTitle" font="Fonts\FRIZQT__.TTF" text="INVTYPE_WEAPONOFFHAND" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="180" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_CTRL2" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="1" g="0.8196079" b="0" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+								</Frames>
+							</Frame>
+							
+						</Frames>
+					</Frame>
+					
+					<Frame name="PoisonerOptions_DropdownFrame_ALT">
+						<Size>
+							<AbsDimension x="300" y="80"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_CTRL" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Preset Title -->
+								<FontString name="PoisonerOptions_PresetTitle_ALT" font="Fonts\FRIZQT__.TTF" text="ALT_KEY" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="300" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="0" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<Color r="1" g="1" b="1" />
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Mainhand Poison preset -->
+							<Frame name="PoisonerOptions_DropdownFrame_ALT1">
+								<Size>
+									<AbsDimension x="170" y="80"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_ALT" relativePoint="TOPLEFT">
+										<Offset x="0" y="-15"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Mainhand Title -->
+										<FontString name="PoisonerOptions_Mainhand_ALTTitle" font="Fonts\FRIZQT__.TTF" text="INVTYPE_WEAPONMAINHAND" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="180" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_ALT1" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="1" g="0.8196079" b="0" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+								</Frames>
+							</Frame>
+							<!-- Offhand Poison preset -->
+							<Frame name="PoisonerOptions_DropdownFrame_ALT2">
+								<Size>
+									<AbsDimension x="170" y="160"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_ALT1" relativePoint="TOPRIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Layers>
+									<Layer>
+										<!-- Offhand Title -->
+										<FontString name="PoisonerOptions_Offhand_ALTTitle" font="Fonts\FRIZQT__.TTF" text="INVTYPE_WEAPONOFFHAND" justifyH="LEFT">
+											<Size>
+												<AbsDimension x="180" y="0" />
+											</Size>
+											<Anchors>
+												<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_ALT2" relativePoint="TOPLEFT">
+													<Offset x="0" y="0"/>
+												</Anchor>
+											</Anchors>
+											<FontHeight>
+												<AbsValue val="11" />
+											</FontHeight>
+											<Color r="1" g="0.8196079" b="0" />
+											<Shadow>
+												<Color r="0" g="0" b="0" />
+													<Offset>
+														<AbsDimension x="1" y="-1" />
+													</Offset>
+											</Shadow>
+										</FontString>
+									</Layer>
+								</Layers>
+								<Frames>
+								</Frames>
+							</Frame>
+							
+						</Frames>
+					</Frame>
+					
+					<CheckButton name="PoisonerOptions_ChkBox_QuickButton_Lock" inherits="InterfaceOptionsCheckButtonTemplate"  justifyH="LEFT">
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_DropdownFrame_ALT" relativePoint="BOTTOMLEFT">
+								<Offset x="-2" y="0"/>
+							</Anchor>
+						</Anchors>
+						<Scripts>
+							<OnLoad>
+								getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_QuickButton_Lock);
+								getglobal(self:GetName().."Text"):SetTextColor(1, 1, 1, 1)
+								getglobal(self:GetName().."Text"):SetFont("Fonts\\FRIZQT__.TTF", 11)
+							</OnLoad>
+							<PostClick>
+								PoisonerOptions_SaveSettings();
+							</PostClick>
+						</Scripts>
+					</CheckButton>
+					
+					<Frame name="PoisonerOptions_QuickButtonSlider">
+						<Size>
+							<AbsDimension x="300" y="90"/>
+						</Size>
+						<Anchors>
+							<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_ChkBox_QuickButton_Lock" relativePoint="BOTTOMLEFT">
+								<Offset x="0" y="-15"/>
+							</Anchor>
+						</Anchors>
+						<Layers>
+							<Layer>
+								<!-- Scale Slider Title -->
+								<FontString name="PoisonerOptions_QB_ScaleSliderTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Scale" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="140" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="10" y="0"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<Color r="0.7" g="0.7" b="0.7" />
+									<!--<Color r="1" g="0.8196079" b="0" />-->
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+								<!-- Alpha Slider Title -->
+								<FontString name="PoisonerOptions_QB_AlphaSliderTitle" font="Fonts\FRIZQT__.TTF" text="PoisonerOptions_LB_Alpha" justifyH="LEFT">
+									<Size>
+										<AbsDimension x="140" y="0" />
+									</Size>
+									<Anchors>
+										<Anchor point="TOPLEFT" relativeTo="$parent" relativePoint="TOPLEFT">
+											<Offset x="10" y="-35"/>
+										</Anchor>
+									</Anchors>
+									<FontHeight>
+										<AbsValue val="12" />
+									</FontHeight>
+									<Color r="0.7" g="0.7" b="0.7" />
+									<!--<Color r="1" g="0.8196079" b="0" />-->
+									<Shadow>
+										<Color r="0" g="0" b="0" />
+											<Offset>
+												<AbsDimension x="1" y="-1" />
+											</Offset>
+									</Shadow>
+								</FontString>
+							</Layer>
+						</Layers>
+						<Frames>
+							<!-- Scale Slider -->
+							<Slider name="PoisonerOptions_QB_ScaleSlider" inherits="OptionsSliderTemplate"  minValue="0.1" maxValue="2" valueStep="0.1">
+								<Size>
+										<AbsDimension x="160" y="16"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_QB_ScaleSliderTitle" relativePoint="TOPRIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									 <OnLoad>
+										getglobal(self:GetName().."High"):SetText("2");
+										getglobal(self:GetName().."Low"):SetText("0.1");
+										<!--getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_Scale);-->
+									</OnLoad>
+									<OnValueChanged>
+										local value = self:GetValue()
+										local newValue = Poisoner_round(value,1)
+										self:SetValue(newValue)
+										getglobal(self:GetName().."Text"):SetText(newValue);
+										Poisoner_QuickButton_Overlay:SetScale(newValue)
+										POISONER_CONFIG.Buttons.QuickButton.Scale = newValue
+									</OnValueChanged>
+								</Scripts>
+							</Slider>
+							<!-- Alpha Slider -->
+							<Slider name="PoisonerOptions_QB_AlphaSlider" inherits="OptionsSliderTemplate"  minValue="0.1" maxValue="1" valueStep="0.1">
+								<Size>
+										<AbsDimension x="160" y="16"/>
+								</Size>
+								<Anchors>
+									<Anchor point="TOPLEFT" relativeTo="PoisonerOptions_QB_AlphaSliderTitle" relativePoint="TOPRIGHT">
+										<Offset x="0" y="0"/>
+									</Anchor>
+								</Anchors>
+								<Scripts>
+									 <OnLoad>
+										getglobal(self:GetName().."High"):SetText("1");
+										getglobal(self:GetName().."Low"):SetText("0.1");
+										<!--getglobal(self:GetName().."Text"):SetText(PoisonerOptions_LB_Alpha);-->
+									</OnLoad>
+									<OnValueChanged>
+										local value = self:GetValue()
+										local newValue = Poisoner_round(value,1)
+										self:SetValue(newValue)
+										getglobal(self:GetName().."Text"):SetText(newValue);
+										Poisoner_QuickButton_Overlay:SetAlpha(newValue)
+										POISONER_CONFIG.Buttons.QuickButton.Alpha = newValue
+									</OnValueChanged>
+								</Scripts>
+							</Slider>
+						</Frames>
+					</Frame>
+					
+				</Frames>
+			</Frame>
+		
+			
+		</Frames>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForDrag("LeftButton");
+				tinsert(UISpecialFrames, self:GetName());
+				PoisonerOptions_OnLoad(self);
+			</OnLoad>
+			<OnEvent>
+				PoisonerOptions_OnEvent(self, event, ...);
+			</OnEvent>
+			<OnDragStart>
+				PoisonerOptions_OnDragStart(self);
+			</OnDragStart>
+			<OnDragStop>
+				PoisonerOptions_OnDragStop(self);
+			</OnDragStop>
+			<OnShow>
+				PoisonerOptions_LoadSettings();
+				PoisonerOptions_SettingsFrame:ClearAllPoints();
+				PoisonerOptions_SettingsFrame:SetPoint("CENTER");
+			</OnShow>
+		</Scripts>
+	</Frame> 
+</Ui>
