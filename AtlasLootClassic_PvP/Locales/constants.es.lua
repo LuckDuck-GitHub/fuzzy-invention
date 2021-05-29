@@ -9,7 +9,13 @@ AL["|cff33ff99Rank:|r %s"] = "|cff33ff99Rango:|r %s"
 --[[ AL["Arena"] = "Arena"--]] 
 AL["Battlegrounds"] = "Campos de batalla"
 AL["Class Sets"] = "Conjuntos de Clase"
+--[[Translation missing --]]
+--[[ AL["Gladiator Mount"] = "Gladiator Mount"--]] 
+--[[Translation missing --]]
+--[[ AL["Honor"] = "Honor"--]] 
 AL["Insignia"] = "Insignia"
+--[[Translation missing --]]
+--[[ AL["Non Set '%s'"] = "Non Set '%s'"--]] 
 --[[Translation missing --]]
 --[[ AL["One-Handed"] = "One-Handed"--]] 
 --[[Translation missing --]]
@@ -17,6 +23,8 @@ AL["Insignia"] = "Insignia"
 AL["PvP Ranks"] = "Rangos de JcJ"
 --[[Translation missing --]]
 --[[ AL["Ranged"] = "Ranged"--]] 
+--[[Translation missing --]]
+--[[ AL["Reputation"] = "Reputation"--]] 
 --[[Translation missing --]]
 --[[ AL["Season %s"] = "Season %s"--]] 
 --[[Translation missing --]]

@@ -18,10 +18,10 @@ local function targetFrame (self, forceNormalTexture)
 	self.healthbar.LeftText:SetPoint("LEFT", self.healthbar, "LEFT", 5, 0);
 	self.healthbar.RightText:SetPoint("RIGHT", self.healthbar, "RIGHT", -3, 0);
 	self.healthbar.TextString:SetPoint("CENTER", self.healthbar, "CENTER", 0, 0);
-	self.manabar.LeftText:SetPoint("LEFT", self.manabar, "LEFT", 2, -1);	
+	self.manabar.LeftText:SetPoint("LEFT", self.manabar, "LEFT", 2, 0);	
 	self.manabar.RightText:ClearAllPoints();
-	self.manabar.RightText:SetPoint("RIGHT", self.manabar, "RIGHT", -2, -1);
-	self.manabar.TextString:SetPoint("CENTER", self.manabar, "CENTER", 0, -1);
+	self.manabar.RightText:SetPoint("RIGHT", self.manabar, "RIGHT", -2, 0);
+	self.manabar.TextString:SetPoint("CENTER", self.manabar, "CENTER", 0, 0);
 	-- TargetFrame.threatNumericIndicator:SetPoint("BOTTOM", PlayerFrame, "TOP", 72, -21);
 	-- FocusFrame.threatNumericIndicator:SetAlpha(0);
 	if ( forceNormalTexture ) then

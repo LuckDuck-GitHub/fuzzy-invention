@@ -1,5 +1,5 @@
-## Interface: 11305
-## Version: v4-classic
+## Interface: 20501
+## Version: v2-bcc
 ## Title: BasicMinimap
 ## Notes: Configurable minimap with basic options.
 ## Notes-zhTW: 小地圖增強插件
@@ -13,10 +13,10 @@
 ## Notes-esES: Minimapa configurable con opciones básicas.
 ## Notes-esMX: Minimapa configurable con opciones básicas.
 ## Author: Funkydude
-## SavedVariables: BasicMinimapClassicSV, BasicMinimapSV
-## OptionalDeps: Ace3, LibSharedMedia-3.0, LibDDI-1.0
+## SavedVariables: BasicMinimapSV
+## OptionalDeps: Ace3, LibSharedMedia-3.0, LibDDI-1.0, LibDBIcon-1.0
 
-## X-Embeds: Ace3, LibSharedMedia-3.0, LibDDI-1.0
+## X-Embeds: Ace3, LibSharedMedia-3.0, LibDDI-1.0, LibDBIcon-1.0
 ## X-Category: Minimap
 ## X-Website: https://github.com/funkydude/BasicMinimap
 ## X-License: All Rights Reserved: You are free to fork and modify on GitHub, please ask us about anything else.

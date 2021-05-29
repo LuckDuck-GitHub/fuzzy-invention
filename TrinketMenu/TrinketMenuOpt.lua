@@ -1,4 +1,4 @@
-﻿--[[ TrinketMenuOpt.lua : Options and sort window for TrinketMenu ]]
+--[[ TrinketMenuOpt.lua : Options and sort window for TrinketMenu ]]
 
 local _G, math, string, table = _G, math, string, table
 

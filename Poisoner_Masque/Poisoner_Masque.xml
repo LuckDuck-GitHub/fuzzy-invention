@@ -1,0 +1,15 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+	<Script file="Poisoner_Masque.lua"/>
+
+	<Frame name="Poisoner_Masque">
+		<Scripts>
+			<OnLoad>
+				Poisoner_Masque_OnLoad(self)
+			</OnLoad>
+			<OnEvent>
+				Poisoner_Masque_OnEvent(self,event)
+			</OnEvent>
+		</Scripts>
+	</Frame>
+</Ui>

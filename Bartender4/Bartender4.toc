@@ -1,9 +1,9 @@
-## Interface: 11307
+## Interface: 20501
 
 ## Title: Bartender4
 ## Notes: Simple and Advanced combined - Bartender4 ActionBar AddOn
 
-## Version: 4.10.8
+## Version: 4.10.9
 
 ## Author: Nevcairiel
 ## X-Email: h.leppkes at gmail dot com
@@ -15,7 +15,7 @@
 ## X-WoWI-ID: 11190
 
 ## SavedVariables: Bartender4DB
-## OptionalDeps: Ace3, Masque, LibButtonGlow-1.0, LibActionButton-1.0, LibKeyBound-1.0, LibDBIcon-1.0, LibWindow-1.1, LibClassicSpellActionCount-1.0
+## OptionalDeps: Ace3, Masque, LibButtonGlow-1.0, LibActionButton-1.0, LibKeyBound-1.0, LibDBIcon-1.0, LibWindow-1.1
 
 #@no-lib-strip@
 libs\LibStub\LibStub.lua
@@ -35,7 +35,6 @@ libs\AceLocale-3.0\AceLocale-3.0.xml
 libs\AceGUI-3.0\AceGUI-3.0.xml
 libs\AceConfig-3.0\AceConfig-3.0.xml
 
-libs\LibClassicSpellActionCount-1.0\LibClassicSpellActionCount-1.0.lua
 
 libs\LibKeyBound-1.0\lib.xml
 libs\LibButtonGlow-1.0\LibButtonGlow-1.0.lua

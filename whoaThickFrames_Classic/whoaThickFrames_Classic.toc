@@ -1,5 +1,5 @@
-## Interface: 11306
-## Title: whoa |cFFFFFFFFThickFrames|r (for WoW Classic)
+## Interface: 20501
+## Title: whoa |cFFFFFFFFThickFrames|r (for WoW TBC Classic)
 ## Notes: Modified unit frames.
 ## Author: whoarrior, delabarra
 ## Version: 1.4

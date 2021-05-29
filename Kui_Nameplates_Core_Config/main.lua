@@ -274,7 +274,7 @@ function command_func.dump()
     end
 
     d:AddText(format('%s %d.%d%s%s%s%s',
-        '2.27.2',knp.MAJOR,knp.MINOR,
+        '2.27.3a',knp.MAJOR,knp.MINOR,
         debug,custom,barauras,extras))
     d:AddText(format('%s %s',locale,class))
 

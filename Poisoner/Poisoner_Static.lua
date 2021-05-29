@@ -5,6 +5,8 @@
 		8984,	--Tödliches Gift III
 		8985,	--Tödliches Gift IV
 		20844,	--Tödliches Gift V
+		22053,	--Tödliches Gift VI
+		22054,	--Tödliches Gift VII
 	},
 	["CP"] = {
 		3775,	--Verkrüppelndes Gift
@@ -22,12 +24,14 @@
 		8926,	--Sofort wirkendes Gift IV
 		8927,	--Sofort wirkendes Gift V
 		8928,	--Sofort wirkendes Gift VI
+		21927,	--Sofort wirkendes Gift VII
 	},
 	["WP"] = {
 		10918,	--Wundgift I
 		10920,	--Wundgift II
 		10921,	--Wundgift III
 		10922,	--Wundgift IV
+		22055, 	--Wundgift V
 	},
 	
 	["SS"] = {
@@ -36,6 +40,7 @@
 		2871,	--Schwerer Wetzstein
 		7964,	--Robuster Wetzstein
 		12404,	--Verdichteter Wetzstein
+		23528,	--Teuflischer Wetzstein
 	},
 	["WS"] = {
 		3239,	--Rauer Gewichtsstein
@@ -64,6 +69,8 @@ Poisoner_SpellIDs = {
 	[11355] = "DP3",	--Tödliches Gift III
 	[11356] = "DP4",	--Tödliches Gift IV
 	[25351] = "DP5",	--Tödliches Gift V
+	[26967] = "DP6",	--Tödliches Gift VI
+	[27186] = "DP7",	--Tödliches Gift VII
 
 	[3408] = "CP1",	--Verkrüppelndes Gift
 	[11202] = "CP2",	--Verkrüppelndes Gift II
@@ -78,11 +85,13 @@ Poisoner_SpellIDs = {
 	[11338] = "IP4",	--Sofort wirkendes Gift IV
 	[11339] = "IP5",	--Sofort wirkendes Gift V
 	[11340] = "IP6",	--Sofort wirkendes Gift VI
+	[26891] = "IP7",	--Sofort wirkendes Gift VII
 
 	[13219] = "WP1",	--Wundgift
 	[13225] = "WP2",	--Wundgift II
 	[13226] = "WP3",	--Wundgift III
 	[13227] = "WP4",	--Wundgift IV
+	[27188] = "WP5",	--Wundgift V
 }
 
 Poisoner_PoisonDropDownCats = {

@@ -43,7 +43,7 @@ whoaUI.panel = CreateFrame( "Frame", "whoaUI", UIParent );
 whoaUI.panel.name = "whoa ThickFrames";
 InterfaceOptions_AddCategory(whoaUI.panel);
 
-local title = whoa:CreateFont(whoaUI.panel, "title", "whoa ThickFrames v1.4 (Classic)", 15, -18, font, 15)
+local title = whoa:CreateFont(whoaUI.panel, "title", "whoa ThickFrames v1.5 (TBC Classic)", 15, -18, font, 15)
 title:SetFontObject(GameFontNormal) 
 title:SetPoint("LEFT",whoaUI.panel,"TOPLEFT",0,0)
 

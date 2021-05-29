@@ -1,10 +1,10 @@
-## Interface: 11303
+## Interface: 20501
 ## Title: Poisoner
 ## Notes: Poison application helper for rogues
 ## Author: Original by Karrion@Terenas, Poisoner3 by Silentdave, humfras (06/2010), Poisoner4 by humfras
 ## eMail: N/A
 ## URL: N/A
-## Version: 1.13.2.17-classic
+## Version: 2.5.1.1-TBC
 ## Dependencies:
 ## SavedVariablesPerCharacter: POISONER_CONFIG
 

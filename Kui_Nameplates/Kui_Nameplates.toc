@@ -1,9 +1,9 @@
-## Interface: 11305
+## Interface: 20501
 
 ## Author: Kesava
 ## Title: Kui |cff9966ffNameplates
 ## Notes: Kesava's nameplate framework.|nDoes nothing without a layout.
-## Version: 2.27.2
+## Version: 2.27.3a
 ## X-License: All Rights Reserved.
 ## X-Website: https://github.com/kesava-wow/kuinameplates2
 ## X-Curse-Project-ID: 35095

@@ -730,7 +730,7 @@ function PoisonerOptions_CreateSortingFrames()
 		
 		local f = _G["PoisonerOptions_SortingFrame_"..v]
 		if not f then
-			f = CreateFrame("Frame", "PoisonerOptions_SortingFrame_"..v, PoisonerOptions_SortingFrame)
+			f = CreateFrame("Frame", "PoisonerOptions_SortingFrame_"..v, PoisonerOptions_SortingFrame, BackdropTemplateMixin and "BackdropTemplate")
 			f:SetFrameStrata("BACKGROUND")
 			f:SetWidth(64)
 			f:SetHeight(64)
@@ -856,6 +856,19 @@ function PoisonerOptions_OnLoad(self)
 		whileDead = 0,
 		hideOnEscape = 1
 	}
+	
+	if not self.SetBackdrop then
+		Mixin(self, BackdropTemplateMixin)
+		self:SetBackdrop({
+			bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+			edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+			edgeSize = 32,
+			insets = {left=11, right=12, top=12, bottom=11},
+			tile = true,
+			tileEdge = true,
+			tileSize = 32,
+		})
+	end
 	
 end
 

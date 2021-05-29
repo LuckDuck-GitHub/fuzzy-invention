@@ -151,14 +151,14 @@ local function CreateDeadText(name, parentName, parent, point, x, y)
 	return fontString
 end
 local function targetFrameStatusText()
-	if not mi2addon then
-		TargetFrameHealthBar.TextString = CreateStatusBarText("Text", "TargetFrameHealthBar", TargetFrameTextureFrame, "CENTER", 0, 0);
-		TargetFrameHealthBar.LeftText = CreateStatusBarText("TextLeft", "TargetFrameHealthBar", TargetFrameTextureFrame, "LEFT", 5, 0);
-		TargetFrameHealthBar.RightText = CreateStatusBarText("TextRight", "TargetFrameHealthBar", TargetFrameTextureFrame, "RIGHT", -3, 0);
-		TargetFrameManaBar.TextString = CreateStatusBarText("Text", "TargetFrameManaBar", TargetFrameTextureFrame, "CENTER", 0, 0);
-		TargetFrameManaBar.LeftText = CreateStatusBarText("TextLeft", "TargetFrameManaBar", TargetFrameTextureFrame, "LEFT", 5, 0);
-		TargetFrameManaBar.RightText = CreateStatusBarText("TextRight", "TargetFrameManaBar", TargetFrameTextureFrame, "RIGHT", -3, 0);
-	end
+	-- if not mi2addon then
+		-- TargetFrameHealthBar.TextString = CreateStatusBarText("Text", "TargetFrameHealthBar", TargetFrameTextureFrame, "CENTER", 0, 0);
+		-- TargetFrameHealthBar.LeftText = CreateStatusBarText("TextLeft", "TargetFrameHealthBar", TargetFrameTextureFrame, "LEFT", 5, 0);
+		-- TargetFrameHealthBar.RightText = CreateStatusBarText("TextRight", "TargetFrameHealthBar", TargetFrameTextureFrame, "RIGHT", -3, 0);
+		-- TargetFrameManaBar.TextString = CreateStatusBarText("Text", "TargetFrameManaBar", TargetFrameTextureFrame, "CENTER", 0, 0);
+		-- TargetFrameManaBar.LeftText = CreateStatusBarText("TextLeft", "TargetFrameManaBar", TargetFrameTextureFrame, "LEFT", 5, 0);
+		-- TargetFrameManaBar.RightText = CreateStatusBarText("TextRight", "TargetFrameManaBar", TargetFrameTextureFrame, "RIGHT", -3, 0);
+	-- end
 	TargetFrameTextureFrameGhostText = CreateDeadText("GhostText", "TargetFrameHealthBar", TargetFrameHealthBar, "CENTER", 0, 0);
 	TargetFrameTextureFrameOfflineText = CreateDeadText("OfflineText", "TargetFrameHealthBar", TargetFrameHealthBar, "CENTER", 0, 0);
 	PlayerFrameDeadText = CreateDeadText("DeadText", "PlayerFrame", PlayerFrameHealthBar, "CENTER", 0, 0);
@@ -250,12 +250,14 @@ local function customStatusTex(statusFrame, textString, value, valueMin, valueMa
 		-- xpMaxValueDisplay = BreakUpLargeNumbers(xpMaxValue);
 		
 		local textDisplay = GetCVar("statusTextDisplay");
-		if ( value and valueMax > 0 and ( (textDisplay ~= "NUMERIC" and textDisplay ~= "NONE") or statusFrame.showPercentage ) and not statusFrame.showNumeric) then
+		-- if ( value and valueMax > 0 and ( (textDisplay ~= "NUMERIC" and textDisplay ~= "NONE") or statusFrame.showPercentage ) and not statusFrame.showNumeric) then
+		if ( value and valueMax > 0 and (textDisplay ~= "NUMERIC" and textDisplay ~= "NONE") and not statusFrame.showNumeric) then
 			if ( value == 0 and statusFrame.zeroText ) then
 				textString:SetText(statusFrame.zeroText);
 				statusFrame.isZero = 1;
 				textString:Show();
-			elseif ( textDisplay == "BOTH" and not statusFrame.showPercentage) then
+			-- elseif ( textDisplay == "BOTH" and not statusFrame.showPercentage) then
+			elseif ( textDisplay == "BOTH" ) then
 				if( statusFrame.LeftText and statusFrame.RightText ) then
 					if(not statusFrame.powerToken or statusFrame.powerToken == "MANA") then
 						statusFrame.LeftText:SetText(math.ceil((value / valueMax) * 100) .. "%");	-- % both.
@@ -336,13 +338,13 @@ function whoaCheckDead (self)
 	
 	if UnitIsDeadOrGhost("target") or not UnitIsConnected("target") then
 		if textDisplay == "BOTH" then
-			TargetFrameHealthBarTextLeft:Hide();
-			TargetFrameHealthBarTextRight:Hide();
-			TargetFrameManaBarTextLeft:Hide();
-			TargetFrameManaBarTextRight:Hide();
+			TargetFrameTextureFrame.HealthBarTextLeft:Hide();
+			TargetFrameTextureFrame.HealthBarTextRight:Hide();
+			TargetFrameTextureFrame.ManaBarTextLeft:Hide();
+			TargetFrameTextureFrame.ManaBarTextRight:Hide();
 		else
-			TargetFrameHealthBarText:Hide();
-			TargetFrameManaBarText:Hide();
+			TargetFrameTextureFrame.HealthBarText:Hide();
+			TargetFrameTextureFrame.ManaBarText:Hide();
 		end
 	else
 	end

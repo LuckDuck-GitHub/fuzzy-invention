@@ -5,6 +5,8 @@ if not AL then return end
 -- These localization strings are translated on Curseforge: https://www.curseforge.com/wow/addons/atlaslootclassic/localization
 AL["--- or ---"] = "--- o ---"
 AL["%s will finish loading after combat."] = "%s terminará cargando después de combate."
+--[[Translation missing --]]
+--[[ AL["(%d) Set:"] = "(%d) Set:"--]] 
 AL["/al - Open the AtlasLoot window."] = "/al - Abre la ventana AtlasLoot."
 AL["/al mmb - Toggle MiniMapButton"] = "/al mmb -  Alternar MiniMapaBotón"
 AL["/al options - Open AtlasLoot Options window."] = "/al options - Abre ventana de Opciones de AtlasLoot"
